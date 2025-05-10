@@ -33,6 +33,19 @@ pipeline {
                 sh 'docker push $IMAGE_NAME:$IMAGE_TAG'
             }
         }
+
+        stage('Deploy New Container') {
+            steps {
+                script {
+                    sh '''
+                    docker stop vite-react-app || true
+                    docker rm vite-react-app || true
+                    docker rmi $IMAGE_NAME:$IMAGE_TAG || true
+                    docker run -d --name vite-react-app -p 80:80 $IMAGE_NAME:$IMAGE_TAG
+                    '''
+                }
+            }
+        }
     }
 
     post {

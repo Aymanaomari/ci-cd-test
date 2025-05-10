@@ -11,7 +11,7 @@ function App() {
       <header className="header">
         <nav>
           <a href="#" className="logo-text">
-            MyProduct
+            MyProduct NEW
           </a>
           <ul className="nav-links">
             <li>
