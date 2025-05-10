@@ -41,7 +41,7 @@ pipeline {
                     docker stop vite-react-app || true
                     docker rm vite-react-app || true
                     docker rmi $IMAGE_NAME:$IMAGE_TAG || true
-                    docker run -d --name vite-react-app -p 80:80 $IMAGE_NAME:$IMAGE_TAG
+                    docker run -d --name vite-react-app -p 8080:80 $IMAGE_NAME:$IMAGE_TAG
                     '''
                 }
             }
